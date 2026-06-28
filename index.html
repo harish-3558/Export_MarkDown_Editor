@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Editor</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+
+    <header class="bg-gray-900 text-white px-6 py-4 flex flex-wrap items-center gap-4">
+      <div>
+        <h1 class="text-xl font-semibold">📝 Markdown Editor</h1>
+        <p class="text-gray-400 text-sm">Type on the left → see the result on the right</p>
+      </div>
+
+      <div class="flex gap-2 ml-auto">
+        <button id="export-md"   class="bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">⬇️ .md</button>
+        <button id="export-html" class="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition">⬇️ .html</button>
+        <button id="export-txt"  class="bg-teal-600   hover:bg-teal-700   text-white text-sm font-medium px-4 py-2 rounded-lg transition">⬇️ .txt</button>
+      </div>
+    </header>
+
+    <main class="flex flex-1 overflow-hidden">
+
+      <section class="flex flex-col flex-1 border-r border-gray-300">
+        <div class="bg-gray-200 text-gray-600 text-xs font-semibold px-4 py-2 border-b border-gray-300">
+          ✏️ Write
+        </div>
+        <textarea
+          id="editor"
+          placeholder="Start typing Markdown here..."
+          class="flex-1 w-full p-4 font-mono text-sm bg-gray-50 text-gray-800 resize-none outline-none leading-relaxed"
+        ></textarea>
+      </section>
+
+      <section class="flex flex-col flex-1">
+        <div class="bg-gray-200 text-gray-600 text-xs font-semibold px-4 py-2 border-b border-gray-300">
+          👁️ Preview
+        </div>
+        <div
+          id="preview"
+          class="flex-1 p-5 overflow-y-auto bg-white text-gray-800 leading-relaxed prose max-w-none"
+        ></div>
+      </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-xs flex gap-6 px-4 py-2">
+      <span id="word-count">0 words</span>
+      <span id="char-count">0 characters</span>
+    </footer>
+
+    <style>
+      #preview h1 { font-size: 24px; font-weight: 700; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; margin: 0 0 12px; }
+      #preview h2 { font-size: 20px; font-weight: 600; margin: 16px 0 8px; }
+      #preview h3 { font-size: 17px; font-weight: 600; margin: 14px 0 6px; }
+      #preview p  { margin: 8px 0; }
+      #preview ul, #preview ol { margin: 8px 0 8px 24px; }
+      #preview li { margin: 4px 0; }
+      #preview ul { list-style: disc; }
+      #preview ol { list-style: decimal; }
+      #preview code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; color: #dc2626; }
+      #preview pre  { background: #1e1e2e; color: #cdd6f4; padding: 14px; border-radius: 8px; overflow-x: auto; margin: 10px 0; }
+      #preview pre code { background: none; color: inherit; padding: 0; }
+      #preview blockquote { border-left: 4px solid #7c3aed; padding: 8px 14px; background: #f5f3ff; border-radius: 0 6px 6px 0; margin: 10px 0; color: #555; }
+      #preview a  { color: #7c3aed; }
+      #preview hr { border: none; border-top: 1px solid #e5e7eb; margin: 16px 0; }
+      #preview strong { font-weight: 700; }
+      #preview em     { font-style: italic; }
+      #preview del    { text-decoration: line-through; color: #9ca3af; }
+      #preview table  { border-collapse: collapse; width: 100%; margin: 10px 0; }
+      #preview th, #preview td { border: 1px solid #e5e7eb; padding: 8px 12px; font-size: 14px; }
+      #preview th { background: #f9fafb; font-weight: 600; }
+    </style>
+    <script src="main.js"></script>
+  </body>
+</html>
